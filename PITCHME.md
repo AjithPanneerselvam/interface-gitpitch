@@ -1,4 +1,8 @@
-## A deep dive into Go Interfaces 
+### A Deep Dive into Go Interfaces 
+
+@snap[south-east] 
+**Ajith Panneerselvam**
+@snapend 
 
 --- 
 ### Interfaces
@@ -20,8 +24,8 @@ Collection of method signatures
 
 +++ 
 @snap[north span-100]
-#### Downloader Interface  
-@snapend
+### Downloader Interface  
+@snapend 
 
 @snap[west span-100]
 ```go 
@@ -65,6 +69,7 @@ func (h *httpDownloader) Cancel(downloadID uuid.UUID) error {
     return nil
 }
 ```
+@snapend
 
 Note: 
 - Work with the code
@@ -72,10 +77,8 @@ Note:
 - Point out that type can be anything. Need not only by struct. Can be int, string, ...
 - Assignn Torrent downloader 
 
-@snapend
-
 ---
-## Interface Type  
+### Interface Type  
 
 @ul 
 - Static Type 
@@ -84,8 +87,8 @@ Note:
 @ulend
 
 +++  
-@snap[north span-40 text-center] 
-#### Interface Type  
+@snap[north span-100] 
+### Downloader Type  
 @snapend 
 
 @snap[span-100 text-06 text-center] 
@@ -105,60 +108,110 @@ Note:
 - Show the dynamic type when downloader is not assigned
 
 ---
-#### Good to know beforehand  
+@snap[north span-100]
+### Good to know beforehand  
+@snapend 
+
 @ul
-- Embed interfaces
+- Can embed interfaces (Composition)
 - Cannot have duplicate methods
 - No cycles 
 - No pointer for interface 
-- Be wary of receivers 
 @ulend 
 
 --- 
-#### Empty interface
-
-@snap[midpoint]
-```go 
-var i interface{}
-```
+@snap[north span-100]
+### Empty interface
 @snapend
+
+**interface{}**
 
 - It says nothing 
 - It is the largest set in Go 
 
 Note: 
-
 - Show the code 
 
 +++
-#### Type Assertions
+@snap[north span-100]
+### Type Assertions
+@snapend 
+
+@snap[text-gray]
+**i.(Type)**
+@snapend
 
 - To check if value held by interface type variable either implements desired interface or is of a concrete type
 
-@snap[midpoint]
-```go 
-i.(Type)
-```
+- i should be an interface 
 @snapend
 
-- i should be an interface 
-
+@snapend
 
 Note: 
-
 - Type can be a concrete type or interface 
 - Show example with Type as interface and concrete type 
 
 +++
-#### Safe way to do type assertions
+@snap[span-100]
+### Safer way to do type assertions
+@snapend 
 
-```go 
-value, ok := i.(Type)
-```
+<p>&nbsp;</p>
+**value, ok := i.(Type)**
 
 Note: 
 
 - Modify the existing code to show them how to perform safe type assertions 
 
+---
+### Readers and Writers <3 
+
 +++ 
-## Readers and Writers <3 
+@snap[north span-100]
+#### Readers and Writers method signature 
+@snapend 
+
+``` go 
+type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+```
+
+```go 
+type Writer interface {
+    Write(p []byte) (n int, err error)
+}
+```
+
+Note: 
+- Readers: Readers  have data and you read it out, and make use of that data  
+- Writers: You have data and you want to write it into a writer where something happens to that data
+
+- Reader Best Practices: 
+    - Read reads up to len(p) bytes into p. It returns the number of bytes read (0 <= n <= len(p)) and any error encountered
+    - A successfyk read may return err == EOF or err == nil, depends on source and implementation 
+    - Even if Read returns n < len(p), it may use all of p as scratch space during the call 
+    - Implmentations must not retain p 
+    - If some data is available but not len(p) bytes. Read conventionally returns what is available instead of waiting for more
+    - Implementations of Read are discouraged from returning a zero byte count with a nil error, except when len(p) == 0. 
+    - [Continuation] Callers should not treat a return of 0 and nil as indicating that nothing happened; in particular it does not indicate EOF. 
+    - Process n > 0 bytes returned before considering the error
+
+--- 
+#### Unit testing is made easy with interfaces 
+
+---
+@snap[north span-100]
+#### Contribution of Interfaces to Object-Oriented Programming in Go
+@snapend 
+
+@ul
+- Inheritance 
+- Polymorphism 
+@ulend 
+
+---
+@snap[text-black] 
+### Thank you!
+@snapend
