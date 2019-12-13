@@ -1,0 +1,16 @@
+theme-override : assets/css/PITCHME.css
+
+transition : none
+
+highlight: github-gist 
+
+slide-number: true
+code-line-numbers : false
+
+charts : true
+mathjax : TeX-AMS_HTML-full
+
+title : "A deep dive into Go Interfaces"
+description : "A tour of Go Interfaces"
+
+footnote : "A deep dive into Go Interfaces - Ajith Pannneerselvam" 
