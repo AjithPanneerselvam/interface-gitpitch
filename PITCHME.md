@@ -117,9 +117,11 @@ Note:
 --- 
 #### Empty interface
 
+@snap[midpoint]
 ```go 
 var i interface{}
 ```
+@snapend
 
 - It says nothing 
 - It is the largest set in Go 
@@ -133,9 +135,11 @@ Note:
 
 - To check if value held by interface type variable either implements desired interface or is of a concrete type
 
+@snap[midpoint]
 ```go 
 i.(Type)
 ```
+@snapend
 
 - i should be an interface 
 
