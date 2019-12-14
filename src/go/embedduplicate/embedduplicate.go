@@ -16,5 +16,6 @@ type Downloader interface {
 type TorrentDownloader interface {
 	Downloader
 
+	HealthCheckPeer(peerID string) error
 	Download()
 }

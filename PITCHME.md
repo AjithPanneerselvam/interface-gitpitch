@@ -16,7 +16,7 @@ An interface is a device or a system that unrelated entities use to interact
 @ul 
 - Concrete Type (int32, float64)
 - Abstract Type (io.Reader, io.Writer)
-@ulend
+@lend
 
 --- 
 ### Go Interface 
@@ -203,13 +203,27 @@ Note:
 
 ---
 @snap[north span-100]
-#### Contribution of Interfaces to Object-Oriented Programming in Go
+#### Object-Oriented like constructs 
 @snapend 
 
 @ul
-- Inheritance 
 - Polymorphism 
+- Inheritance (Composition) 
+- Abstraction 
 @ulend 
+
+---
+### Interface Segregation Principle 
+@quote[Clients should not be forced to depend on methods they do not use.](Robert C. Martin)
+
+---
+@quote[A great rule of thumb for Go is accept interfaces, return structs.](Jack Lindamood)
+
+---
+### The bigger the interface the weaker the abstraction
+
+---
+### Maintain backward compatibility
 
 ---
 @snap[text-black] 
