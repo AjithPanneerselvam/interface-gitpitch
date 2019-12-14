@@ -164,6 +164,21 @@ Note:
 
 - Modify the existing code to show them how to perform safe type assertions 
 
++++
+@snap[north span-100] 
+Type switches
+@snapend 
+
+``` go 
+switch v := i.(type) {
+case T:
+    // here v has type T
+case S:
+    // here v has type S
+default:
+    // no match; here v has the same type as i
+}
+```
 ---
 ### Readers and Writers <3 
 
@@ -219,8 +234,12 @@ Note:
 ---
 @quote[A great rule of thumb for Go is accept interfaces, return structs.](Jack Lindamood)
 
+Note: 
+- You’re the one writing the function so you know exactly when you need to abstract the return value.
+- For function inputs, the need isn’t in your control. You may think your database struct is enough, but a user could have a need to wrap it with something else. It’s difficult, if not impossible, to anticipate the state of everyone using your function. This imbalance between being able to precisely control the output, but be unable to anticipate the user’s input, creates a stronger bias for abstraction on the input than it does on the output.
+
 ---
-### The bigger the interface the weaker the abstraction
+@quote[The bigger the interface the weaker the abstraction](Rob Pike)
 
 ---
 ### Maintain backward compatibility

@@ -69,7 +69,7 @@ func main() {
 
 	httpDownloader := downloader.(*httpDownloader)
 
-	downloadID, err := httpDownloader.Download("https://www.wikipedia.com")
+	downloadID, err := httpDownloader.Download("https://golang.org/")
 	if err != nil {
 		fmt.Println(err)
 		return
