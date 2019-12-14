@@ -16,7 +16,7 @@ An interface is a device or a system that unrelated entities use to interact
 @ul 
 - Concrete Type (int32, float64)
 - Abstract Type (io.Reader, io.Writer)
-@lend
+@end
 
 --- 
 ### Go Interface 
@@ -203,7 +203,7 @@ Note:
 
 ---
 @snap[north span-100]
-#### Object-Oriented like constructs 
+#### Object-Oriented like features offered by Interface 
 @snapend 
 
 @ul
