@@ -109,7 +109,7 @@ Note:
 
 ---
 @snap[north span-100]
-### Good to know beforehand  
+### Properties  
 @snapend 
 
 @ul
@@ -117,6 +117,7 @@ Note:
 - Cannot have duplicate methods
 - No cycles 
 - No pointer for interface 
+- A type can implement interface 
 @ulend 
 
 --- 
@@ -184,7 +185,7 @@ default:
 
 +++ 
 @snap[north span-100]
-#### Readers and Writers method signature 
+#### Reader and Writer method signature 
 @snapend 
 
 ``` go 
@@ -218,13 +219,13 @@ Note:
 
 ---
 @snap[north span-100]
-#### Object-Oriented like features offered by Interface 
+#### Object-Oriented 'like' features 
 @snapend 
 
 @ul
-- Polymorphism 
-- Inheritance (Composition) 
 - Abstraction 
+- Inheritance (Composition) 
+- Polymorphism 
 @ulend 
 
 ---
@@ -248,3 +249,4 @@ Note:
 @snap[text-black] 
 ### Thank you!
 @snapend
+

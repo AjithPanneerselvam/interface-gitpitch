@@ -48,10 +48,9 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-
 	fmt.Println("download completed")
 
-	sourceFile, err := os.Open("./source.txt")
+	/*sourceFile, err := os.Open("./source.txt")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -70,15 +69,5 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println("file successfully written")
-}
-
-func WriteBuf(r io.Reader, w io.Writer) error {
-	n, err := io.Copy(w, r)
-	if err != nil {
-		return err
-	}
-
-	fmt.Printf("%v written bytes\n", n)
-	return nil
+	fmt.Println("file successfully written")*/
 }
