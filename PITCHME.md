@@ -117,7 +117,7 @@ Note:
 - Cannot have duplicate methods
 - No cycles 
 - No pointer for interface 
-- A type can implement interface 
+- A type can implement multiple interfaces
 @ulend 
 
 --- 
